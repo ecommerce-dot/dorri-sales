@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>도르리 매출 보고</title>
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="도르리 매출">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  html, body { margin: 0; height: 100%; background: #faf9f7; }
+  body { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); box-sizing: border-box; }
+  iframe { display: block; width: 100%; height: 100%; border: 0; }
+  #splash { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; transition: opacity .3s; }
+  #splash img { width: 160px; }
+  #splash.hide { opacity: 0; pointer-events: none; }
+  @media (prefers-color-scheme: dark) { html, body { background: #1b1a18; } }
+</style>
+</head>
+<body>
+<!-- ↓ 여기에 Apps Script 웹앱 주소(…/exec)를 넣으세요. ACCESS_KEY를 쓰면 끝에 ?k=값 을 붙이세요. -->
+<iframe id="app" src="https://script.google.com/a/macros/ingstory.kr/s/AKfycbw_kpGFrESEOhu_sZ_qAlz7Tkfa2hA3FPiiR8xow1oxnJ565pFdNwNmJ0pT-6pY6ZBoMg/exec여기에_배포_ID/exec" allow="clipboard-write" title="도르리 매출 보고"></iframe>
+<div id="splash"><img src="icon-512.png" alt="dorri."></div>
+<script>
+  document.getElementById('app').addEventListener('load', () => document.getElementById('splash').classList.add('hide'));
+  setTimeout(() => document.getElementById('splash').classList.add('hide'), 6000);
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
